@@ -4,6 +4,7 @@ ARG PG_URL
 ARG PG_JDBCDRIVER
 ARG PG_USER
 ARG PG_PWD
+ARG SVN_REPO_URL
 
 COPY pattern-3/gateway-manager/carbon/ /mnt/wso2-artifacts
 
