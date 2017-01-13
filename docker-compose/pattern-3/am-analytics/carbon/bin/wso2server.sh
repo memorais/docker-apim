@@ -288,6 +288,36 @@ status=$START_EXIT_STATUS
 #To monitor a Carbon server in remote JMX mode on linux host machines, set the below system property.
 #   -Djava.rmi.server.hostname="your.IP.goes.here"
 
+
+#############
+## SICREDI ##
+#############
+
+if [ ! -f /mnt/wso2-artifacts/repository/conf/datasources/stats-datasources.xml ]
+        then
+
+        cat /mnt/wso2-artifacts/repository/conf/datasources/stats-datasources.xml.template | \
+                sed -e "s@_PG_URL_@${PG_URL}@g"              | \
+                sed -e "s@_PG_JDBCDRIVER_@${PG_JDBCDRIVER}@g" | \
+                sed -e "s@_PG_USER_@${PG_USER}@g"             | \
+                sed -e "s@_PG_PWD_@${PG_PWD}@g" > /mnt/wso2-artifacts/repository/conf/datasources/stats-datasources.xml
+
+fi
+
+if [ ! -f /mnt/wso2-artifacts/repository/conf/datasources/analytics-datasources.xml ]
+        then
+
+        cat /mnt/wso2-artifacts/repository/conf/datasources/analytics-datasources.xml.template | \
+                sed -e "s@_PG_URL_@${PG_URL}@g"              | \
+                sed -e "s@_PG_JDBCDRIVER_@${PG_JDBCDRIVER}@g" | \
+                sed -e "s@_PG_USER_@${PG_USER}@g"             | \
+                sed -e "s@_PG_PWD_@${PG_PWD}@g" > /mnt/wso2-artifacts/repository/conf/datasources/analytics-datasources.xml
+
+fi
+
+#############
+
+
 while [ "$status" = "$START_EXIT_STATUS" ]
 do
     $JAVACMD \
