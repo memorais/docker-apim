@@ -13,6 +13,8 @@ COPY artifacts/postgresql-9.4.1212.jre6.jar /mnt/wso2-artifacts/repository/compo
 COPY artifacts/svnkit-all-1.8.7.wso2v1.jar /mnt/wso2/carbon-home/repository/components/dropins/
 COPY artifacts/trilead-ssh2-1.0.0-build215.jar /mnt/wso2/carbon-home/repository/components/lib/
 
+RUN chmod -R 777 /mnt/wso2-artifacts/repository/conf
+
 RUN rm -r /mnt/wso2am-2.0.0/repository/deployment/server/webapps/*
 RUN rm -r /mnt/wso2am-2.0.0/repository/deployment/server/jaggeryapps/*
 
