@@ -32,7 +32,9 @@ git clone https://github.com/memorais/docker-apim.git
   You should run this image using the environment parameters;
 **ARG MY_JDBC_URL**, **ARG MY_JDBCDRIVER**, **ARG MY_USER**, **ARG MY_PWD**, **ARG SVN_REPO_URL**, **ARG SVN_REPO_USER** and **ARG SVN_REPO_PWD**
   Don't forget to do the port mapping 9448:9444
-
+  ```bash
+docker run -d -p 9448:9444 -e MYURL=jdbc:mysql://HOSTNAME:3306/stats_db -e MY_JDBCDRIVER=com.mysql.jdbc.Driver -e MY_USER=root -e MY_PWD=root -e SVN_REPO_URL=http://HOSTNAME/repos/ -e SVN_REPO_USER=root -e SVN_REPO_PWD-root   -i -t docker.wso2.com/am-analytics
+```
 - **traffic-manager:**
 
 - **key-manager:**
