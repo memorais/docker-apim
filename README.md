@@ -10,17 +10,17 @@ git clone https://github.com/memorais/docker-apim.git
 
 ## Environments used in runtime
 
-- **ARG PG_URL:** JDBC URL for postgresql, ex: ***jdbc:postgresql://10.1.10.20:5432/wso2db***
-- **ARG PG_JDBCDRIVER:** JDBC Driver, ex: ***com.postgresql.Driver***
-- **ARG PG_USER:** Postgres DB User
-- **ARG PG_PWD:** PostgresDB Password
+- **ARG MY_JDBC_URL:** JDBC URL
+- **ARG MY_JDBCDRIVER:** JDBC Driver, ex: ***com.mysql.jdbc.Driver***
+- **ARG MY_USER:** DB User
+- **ARG MY_PWD:** DB Password
 - **ARG SVN_REPO_URL:** SVN Repository URL, ex: http://svnrepo.example.com/repos/
 - **ARG SVN_REPO_USER:** SVN Repository User
 - **ARG SVN_REPO_PWD:** SVN Repository Password
 
 ## The building order
 
-- **postgres:** We choose postgres instead of mysql fo clustering purposes
+- **mysql:** 
 
 - **analytics:**
 
