@@ -18,11 +18,20 @@ git clone https://github.com/memorais/docker-apim.git
 - **ARG SVN_REPO_USER:** SVN Repository User
 - **ARG SVN_REPO_PWD:** SVN Repository Password
 
-## The building order
+## The building / running order
 
-- **mysql:** 
+- **svnrepo:**
+  You should download this image from wso2.com
+  Don't forget to expose port 80 if you're running in a single docker/machine, for testing
+
+- **mysql:**
+  You should run this image with **MYSQL_ROOT_PASSWORD** environment parameter
+  Don't forget to expose port 3306 if you're running in a single docker/machine, for testing
 
 - **analytics:**
+  You should run this image using the environment parameters;
+**ARG MY_JDBC_URL**, **ARG MY_JDBCDRIVER**, **ARG MY_USER**, **ARG MY_PWD**, **ARG SVN_REPO_URL**, **ARG SVN_REPO_USER** and **ARG SVN_REPO_PWD**
+  Don't forget to do the port mapping 9448:9444
 
 - **traffic-manager:**
 

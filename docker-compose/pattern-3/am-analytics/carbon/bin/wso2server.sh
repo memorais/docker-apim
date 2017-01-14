@@ -297,10 +297,10 @@ if [ ! -f /mnt/wso2-artifacts/repository/conf/datasources/stats-datasources.xml 
         then
 
         cat /mnt/wso2-artifacts/repository/conf/datasources/stats-datasources.xml.template | \
-                sed -e "s@_PG_URL_@${PG_URL}@g"              | \
-                sed -e "s@_PG_JDBCDRIVER_@${PG_JDBCDRIVER}@g" | \
-                sed -e "s@_PG_USER_@${PG_USER}@g"             | \
-                sed -e "s@_PG_PWD_@${PG_PWD}@g" > /mnt/wso2-artifacts/repository/conf/datasources/stats-datasources.xml
+                sed -e "s@_MY_URL_@${MY_URL}@g"              | \
+                sed -e "s@_MY_JDBCDRIVER_@${MY_JDBCDRIVER}@g" | \
+                sed -e "s@_MY_USER_@${MY_USER}@g"             | \
+                sed -e "s@_MY_PWD_@${MY_PWD}@g" > /mnt/wso2-artifacts/repository/conf/datasources/stats-datasources.xml
 
 fi
 
@@ -308,10 +308,10 @@ if [ ! -f /mnt/wso2-artifacts/repository/conf/datasources/analytics-datasources.
         then
 
         cat /mnt/wso2-artifacts/repository/conf/datasources/analytics-datasources.xml.template | \
-                sed -e "s@_PG_URL_@${PG_URL}@g"              | \
-                sed -e "s@_PG_JDBCDRIVER_@${PG_JDBCDRIVER}@g" | \
-                sed -e "s@_PG_USER_@${PG_USER}@g"             | \
-                sed -e "s@_PG_PWD_@${PG_PWD}@g" > /mnt/wso2-artifacts/repository/conf/datasources/analytics-datasources.xml
+                sed -e "s@_MY_URL_@${MY_URL}@g"              | \
+                sed -e "s@_MY_JDBCDRIVER_@${MY_JDBCDRIVER}@g" | \
+                sed -e "s@_MY_USER_@${MY_USER}@g"             | \
+                sed -e "s@_MY_PWD_@${MY_PWD}@g" > /mnt/wso2-artifacts/repository/conf/datasources/analytics-datasources.xml
 
 fi
 

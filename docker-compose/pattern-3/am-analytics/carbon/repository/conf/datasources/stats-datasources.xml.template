@@ -1,9 +1,9 @@
 <datasources-configuration xmlns:svns="http://org.wso2.securevault/configuration">
-  
+
     <providers>
         <provider>org.wso2.carbon.ndatasource.rdbms.RDBMSDataSourceReader</provider>
     </providers>
-  
+
     <datasources>
     	<datasource>
 	  <name>WSO2AM_STATS_DB</name>
@@ -13,10 +13,10 @@
 	    </jndiConfig>
 	  <definition type="RDBMS">
 		  <configuration>
-                    <url>_PG_URL_</url>
-                    <username>_PG_USER_</username>
-                    <password>_PG_PWD_</password>
-                    <driverClassName>_PG_JDBCDRIVER_</driverClassName>
+                    <url>_MY_URL_</url>
+                    <username>_MY_USER_</username>
+                    <password>_MY_PWD_</password>
+                    <driverClassName>_MY_JDBCDRIVER_</driverClassName>
 			  <maxActive>50</maxActive>
 			  <maxWait>60000</maxWait>
 			  <testOnBorrow>true</testOnBorrow>
