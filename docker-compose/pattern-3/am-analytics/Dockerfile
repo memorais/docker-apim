@@ -5,6 +5,8 @@ ARG PG_JDBCDRIVER
 ARG PG_USER
 ARG PG_PWD
 ARG SVN_REPO_URL
+ARG SVN_REPO_USER
+ARG SVN_REPO_PWD
 
 COPY pattern-3/am-analytics/carbon/ /mnt/wso2-artifacts
 
