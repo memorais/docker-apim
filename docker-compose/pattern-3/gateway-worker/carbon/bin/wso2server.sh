@@ -279,6 +279,10 @@ echo "Using Java memory options: $JVM_MEM_OPTS"
 #############
 ## SICREDI ##
 #############
+
+        cat /mnt/wso2-artifacts/repository/conf/log4j.properties.template | \
+                sed -e "s@_ANALYTICS_URL_@${ANALYTICS_URL}@g" > ${CARBON_HOME}/repository/conf/log4j.properties
+
         cat /mnt/wso2-artifacts/repository/conf/datasources/master-datasources.xml.template | \
                 sed -e "s@_MY_URL_APIDB_@${MY_URL_APIDB}@g"   | \
                 sed -e "s@_MY_URL_USERSDB_@${MY_URL_USERSDB}@g"   | \
