@@ -7,6 +7,8 @@ ARG MY_JDBCDRIVER
 ARG MY_USER
 ARG MY_PWD
 ARG SVN_REPO_URL
+ARG SVN_REPO_USER
+ARG SVN_REPO_PWD
 
 COPY pattern-3/gateway-worker/carbon/ /mnt/wso2-artifacts
 

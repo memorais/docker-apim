@@ -69,39 +69,8 @@ docker run -d -p 8280:8280 -p 8243:8243 -e MY_URL_APIDB=jdbc:mysql://HOST_BD:330
 docker run -d -p 9446:9443 -e MY_URL_STATDB=jdbc:mysql://HOST_DB:3306/stats_db?autoReconnect=true\&amp;relaxAutoCommit=true -e MY_URL_APIDB=jdbc:mysql://HOST_BD:3306/apimgtdb?autoReconnect=true -e MY_URL_USERSDB=jdbc:mysql://HOST_BD:3306/userdb?autoReconnect=true -e MY_URL_REGDB=jdbc:mysql://HOST_BD:3306/regdb?autoReconnect=true -e MY_JDBCDRIVER=com.mysql.jdbc.Driver -e MY_USER=root -e MY_PWD=root -e SVN_REPO_URL=http://HOSTNAME/repos/ -e SVN_REPO_USER=root -e SVN_REPO_PWD=root   --name store -i -t docker.wso2.com/store
 ```
 
-
-
-
 - **publisher:**
-
-
-
-
-
-This repository contains following Docker artifacts:
-- WSO2 API Manager Dockerfile
-- WSO2 API Manager Docker Compose File
-
-## Getting Started
-
-Execute following command to clone the repository:
-
+  Don't forget to do the port mappings  9445:9443
 ```bash
-git clone https://github.com/wso2/docker-apim.git
-```
-
-Checkout required product version branch:
-
-```bash
-git branch
-git checkout <product-version>
-```
-
-The bash files in dockerfile folder make use of scripts in [wso2/docker-common](https://github.com/wso2/docker-common) repository
-and it has been imported into dockerfile/common folder as a sub-module. Once the clone process is completed execute following
-commands to pull the sub-module content:
-
-```bash
-git submodule init
-git submodule update
+docker run -d -p  -e 9445:9443 MY_URL_STATDB=jdbc:mysql://HOST_DB:3306/stats_db?autoReconnect=true\&amp;relaxAutoCommit=true -e MY_URL_APIDB=jdbc:mysql://HOST_BD:3306/apimgtdb?autoReconnect=true -e MY_URL_USERSDB=jdbc:mysql://HOST_BD:3306/userdb?autoReconnect=true -e MY_URL_REGDB=jdbc:mysql://HOST_BD:3306/regdb?autoReconnect=true -e TRAFFIC_MANAGER_URI=tcp://HOST_TRAFFIC_MANAGER:<PORT|5672> -e MY_JDBCDRIVER=com.mysql.jdbc.Driver -e MY_USER=root -e MY_PWD=root -e SVN_REPO_URL=http://HOSTNAME/repos/ -e SVN_REPO_USER=root -e SVN_REPO_PWD=root   --name publisher -i -t docker.wso2.com/publisher
 ```

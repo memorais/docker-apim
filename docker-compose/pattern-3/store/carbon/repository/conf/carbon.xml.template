@@ -585,9 +585,9 @@
         <AutoCommit>true</AutoCommit>
         <AutoCheckout>true</AutoCheckout>
         <RepositoryType>svn</RepositoryType>
-        <SvnUrl>http://svnrepo/repo</SvnUrl>
-        <SvnUser>user</SvnUser>
-        <SvnPassword>password</SvnPassword>
+        <SvnUrl>_SVN_REPO_URL_</SvnUrl>
+        <SvnUser>_SVN_REPO_USER_</SvnUser>
+        <SvnPassword>_SVN_REPO_PWD_</SvnPassword>
         <SvnUrlAppendTenantId>true</SvnUrlAppendTenantId>
     </DeploymentSynchronizer>
 
