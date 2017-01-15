@@ -20,6 +20,7 @@ ARG ANALYTICS_REST_PWD
 
 ARG KM_URL
 ARG GW_MANAGER_URL
+ARG GW_ENDPOINT
 ARG GW_REVOKE_URL
 
 COPY pattern-3/store/carbon/ /mnt/wso2-artifacts

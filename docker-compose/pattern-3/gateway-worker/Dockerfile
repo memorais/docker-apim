@@ -19,6 +19,7 @@ ARG ANALYTICS_REST_PWD
 ARG KM_URL
 ARG TM_URL
 ARG TM_THR_REC_GROUP_URL
+ARG TM_THR_AUTH_URL
 ARG JMS_URL
 
 COPY pattern-3/gateway-worker/carbon/ /mnt/wso2-artifacts

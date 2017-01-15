@@ -305,6 +305,7 @@ if [ ! -f /mnt/wso2-artifacts/repository/conf/api-manager.xml ]
 		sed -e "s@_TM_THR_AUTH_URL_@${TM_THR_AUTH_URL}@g"     | \
 		sed -e "s@_JMS_URL_@${JMS_URL}@g"     | \
 		sed -e "s@_TM_URL_@${TM_URL}@g"     | \
+		sed -e "s@_GW_REVOKE_URL_@${GW_REVOKE_URL}@g"     | \
 		sed -e "s@_TM_THR_REC_GROUP_URL_@${_TM_THR_REC_GROUP_URL_}@g"     | \
 		sed -e "s@_STORE_URL_@${STORE_URL}@g"     | \
                 sed -e "s@_ANALYTICS_USER_@${ANALYTICS_USER}@g"     | \
