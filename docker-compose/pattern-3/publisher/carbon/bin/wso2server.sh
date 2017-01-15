@@ -299,13 +299,20 @@ if [ ! -f /mnt/wso2-artifacts/repository/conf/api-manager.xml ]
         cat /mnt/wso2-artifacts/repository/conf/api-manager.xml.template | \
                 sed -e "s@_ANALYTICS_REST_USER_@${ANALYTICS_REST_USER}@g" | \
                 sed -e "s@_ANALYTICS_REST_PWD_@${ANALYTICS_REST_PWD}@g"   | \
-                sed -e "s@_ANALYTICS_REST_URL_@${ANALYTICS_REST_URL}@g"   | \
+                sed -e "s@_ANALYTICS_R	EST_URL_@${ANALYTICS_REST_URL}@g"   | \
+                sed -e "s@_GW_MANAGER_URL_@${GW_MANAGER_URL}@g"     | \
+                sed -e "s@_GW_ENDPOINT_@${GW_ENDPOINT}@g"     | \
+		            sed -e "s@_KM_URL_@${KM_URL}@g"     | \
+		            sed -e "s@_TM_URL_@${TM_URL}@g"     | \
+		            sed -e "s@_STORE_URL_@${STORE_URL}@g"     | \
                 sed -e "s@_ANALYTICS_USER_@${ANALYTICS_USER}@g"     | \
                 sed -e "s@_ANALYTICS_URL_@${ANALYTICS_URL}@g"       | \
                 sed -e "s@_ANALYTICS_SSL_URL_@${ANALYTICS_SSL_URL}@g"       | \
                 sed -e "s@_ANALYTICS_PWD_@${ANALYTICS_PWD}@g" > /mnt/wso2-artifacts/repository/conf/api-manager.xml
 
 fi
+
+
 
 if [ ! -f /mnt/wso2-artifacts/repository/conf/carbon.xml ]
         then
