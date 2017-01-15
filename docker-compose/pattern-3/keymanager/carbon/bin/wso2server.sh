@@ -285,7 +285,7 @@ echo "Using Java memory options: $JVM_MEM_OPTS"
 if [ ! -f ${CARBON_HOME}/repository/conf/datasources/master-datasources.xml ]
         then
 
-        cat ${CARBON_HOME}/repository/conf/datasources/master-datasources.xml.template | \
+        cat /mnt/wso2-artifacts/repository/conf/datasources/master-datasources.xml.template | \
                 sed -e "s@_MY_URL_APIDB_@${MY_URL_APIDB}@g"   | \
                 sed -e "s@_MY_URL_USERSDB_@${MY_URL_USERSDB}@g"   | \
                 sed -e "s@_MY_URL_REGDB_@${MY_URL_REGDB}@g"   | \
@@ -298,7 +298,7 @@ fi
 if [ ! -f ${CARBON_HOME}/repository/conf/api-manager.xml ]
         then
 
-        cat ${CARBON_HOME}/repository/conf/api-manager.xml.template | \
+        cat /mnt/wso2-artifacts/repository/conf/api-manager.xml.template | \
                 sed -e "s@_ANALYTICS_REST_USER_@${ANALYTICS_REST_USER}@g" | \
                 sed -e "s@_ANALYTICS_REST_PWD_@${ANALYTICS_REST_PWD}@g"   | \
                 sed -e "s@_ANALYTICS_R	EST_URL_@${ANALYTICS_REST_URL}@g"   | \
@@ -322,7 +322,7 @@ fi
 if [ ! -f ${CARBON_HOME}/repository/conf/carbon.xml ]
         then
 
-        cat ${CARBON_HOME}/repository/conf/carbon.xml.template | \
+        cat /mnt/wso2-artifacts/repository/conf/carbon.xml.template | \
                 sed -e "s@_SVN_REPO_USER_@${SVN_REPO_USER}@g"       | \
                 sed -e "s@_SVN_REPO_PWD_@${SVN_REPO_PWD}@g"         | \
                 sed -e "s@_SVN_REPO_URL_@${SVN_REPO_URL}@g" > ${CARBON_HOME}/repository/conf/carbon.xml
