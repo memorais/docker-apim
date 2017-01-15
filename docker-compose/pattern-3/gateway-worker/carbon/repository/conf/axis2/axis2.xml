@@ -678,8 +678,10 @@
             <parameter name="mcastBindAddress">127.0.0.1</parameter>
         -->
         <!-- The host name or IP address of this member -->
-
+<!--
         <parameter name="localMemberHost">gateway-worker</parameter>
+      -->
+        <parameter name="localMemberHost">127.0.0.1</parameter>
 
         <!--
             The bind adress of this member. The difference between localMemberHost & localMemberBindAddress
