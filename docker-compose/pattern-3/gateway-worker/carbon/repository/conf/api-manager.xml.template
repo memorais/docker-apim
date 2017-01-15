@@ -136,20 +136,20 @@
 
              Ex - Multiple Receiver Groups with two receivers each
              {tcp://localhost:7612/,tcp://localhost:7613},{tcp://localhost:7712/,tcp://localhost:7713/} -->
-        <DASServerURL>tcp://analytics:7612</DASServerURL>
-        <DASAuthServerURL>ssl://analytics:7712</DASAuthServerURL>
+        <DASServerURL>_ANALYTICS_URL_</DASServerURL>
+        <DASAuthServerURL>_ANALYTICS_SSL_URL_</DASAuthServerURL>
         <!-- Administrator username to login to the remote DAS server. -->
-        <DASUsername>admin</DASUsername>
+        <DASUsername>_ANALYTICS_USER_</DASUsername>
         <!-- Administrator password to login to the remote DAS server. -->
-        <DASPassword>admin</DASPassword>
+        <DASPassword>_ANALYTICS_PWD_</DASPassword>
 
         <!-- For APIM implemented Statistic client for RDBMS -->
         <StatsProviderImpl>org.wso2.carbon.apimgt.usage.client.impl.APIUsageStatisticsRdbmsClientImpl</StatsProviderImpl>
 
         <!-- DAS REST API configuration -->
-        <DASRestApiURL>https://analytics:9444</DASRestApiURL>
-        <DASRestApiUsername>admin</DASRestApiUsername>
-        <DASRestApiPassword>admin</DASRestApiPassword>
+        <DASRestApiURL>_ANALYTICS_REST_URL_</DASRestApiURL>
+        <DASRestApiUsername>_ANALYTICS_REST_USER_</DASRestApiUsername>
+        <DASRestApiPassword>_ANALYTICS_REST_PWD_</DASRestApiPassword>
 
         <!-- Below property is used to skip trying to connect to event receiver nodes when publishing events even if
             the stats enabled flag is set to true. -->
@@ -202,7 +202,7 @@
     -->
     <APIKeyValidator>
         <!-- Server URL of the API key manager -->
-        <ServerURL>https://keymanager:9443/services/</ServerURL>
+        <ServerURL>_KM_URL_</ServerURL>
 
         <!-- Admin username for API key manager. -->
         <Username>${admin.username}</Username>
@@ -228,7 +228,7 @@
             <MaxIdle>100</MaxIdle>
             <InitIdleCapacity>50</InitIdleCapacity>
         </ConnectionPool-->
-        <!-- Specifies the implementation to be used for KeyValidationHandler. Steps for validating a token can be controlled by plugging in a 
+        <!-- Specifies the implementation to be used for KeyValidationHandler. Steps for validating a token can be controlled by plugging in a
              custom KeyValidation Handler -->
         <KeyValidationHandlerClassName>org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler</KeyValidationHandlerClassName>
     </APIKeyValidator>
@@ -330,7 +330,7 @@
     <!-- Status observers can be registered against the API Publisher to listen for
          API status update events. Each observer must implement the APIStatusObserver
          interface. Multiple observers can be engaged if necessary and in such situations
-         they will be notified in the order they are defined here. 
+         they will be notified in the order they are defined here.
          This configuration is unused from API Manager version 1.10.0 -->
     <!--StatusObservers>
         <Observer>org.wso2.carbon.apimgt.impl.observers.SimpleLoggingObserver</Observer>
@@ -397,7 +397,7 @@
              It is false by default and if you set it to true then make sure that the Access-Control-Allow-Origin header does not contain the wildcard (*) -->
         <Access-Control-Allow-Credentials>false</Access-Control-Allow-Credentials>
     </CORSConfiguration>
-    
+
     <!-- This property is there to configure velocity log output into existing Log4j carbon Logger.
          You can enable this and set preferable Logger name. -->
     <!-- VelocityLogger>VELOCITY</VelocityLogger -->
@@ -408,7 +408,7 @@
             <WhiteListedURI>
                 <URI>/api/am/publisher/{version}/swagger.json</URI>
                 <HTTPMethods>GET,HEAD</HTTPMethods>
-            </WhiteListedURI>
+            </WhiARG JMS_URLteListedURI>
             <WhiteListedURI>
                 <URI>/api/am/store/{version}/swagger.json</URI>
                 <HTTPMethods>GET,HEAD</HTTPMethods>
@@ -464,8 +464,8 @@
         <DataPublisher>
             <Enabled>true</Enabled>
             <Type>Binary</Type>
-            <ReceiverUrlGroup>tcp://traffic-manager:9611</ReceiverUrlGroup>
-            <AuthUrlGroup>ssl://traffic-manager:9711</AuthUrlGroup>
+            <ReceiverUrlGroup>_TM_THR_REC_GROUP_URL_</ReceiverUrlGroup>
+            <AuthUrlGroup>_TM_THR_AUTH_URL_</AuthUrlGroup>
             <Username>${admin.username}</Username>
             <Password>${admin.password}</Password>
             <DataPublisherPool>
@@ -479,7 +479,7 @@
             </DataPublisherThreadPool>
         </DataPublisher>
         <PolicyDeployer>
-            <ServiceURL>https://traffic-manager:9443/services/</ServiceURL>
+            <ServiceURL>_TM_URL_</ServiceURL>
             <Username>${admin.username}</Username>
             <Password>${admin.password}</Password>
         </PolicyDeployer>
@@ -490,7 +490,7 @@
         </BlockCondition>
         <JMSConnectionDetails>
             <Enabled>true</Enabled>
-            <ServiceURL>tcp://traffic-manager:5672</ServiceURL>
+            <ServiceURL>_JMS_URL_</ServiceURL>
             <Username>${admin.username}</Username>
             <Password>${admin.password}</Password>
             <Destination>throttleData</Destination>

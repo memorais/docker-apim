@@ -291,19 +291,29 @@ if [ ! -f /mnt/wso2-artifacts/repository/conf/datasources/master-datasources.xml
                 sed -e "s@_MY_PWD_@${MY_PWD}@g" > /mnt/wso2-artifacts/repository/conf/datasources/master-datasources.xml
 
 fi
+
 if [ ! -f /mnt/wso2-artifacts/repository/conf/api-manager.xml ]
         then
 
         cat /mnt/wso2-artifacts/repository/conf/api-manager.xml.template | \
                 sed -e "s@_ANALYTICS_REST_USER_@${ANALYTICS_REST_USER}@g" | \
                 sed -e "s@_ANALYTICS_REST_PWD_@${ANALYTICS_REST_PWD}@g"   | \
-                sed -e "s@_ANALYTICS_REST_URL_@${ANALYTICS_REST_URL}@g"   | \
+                sed -e "s@_ANALYTICS_R	EST_URL_@${ANALYTICS_REST_URL}@g"   | \
+                sed -e "s@_GW_MANAGER_URL_@${GW_MANAGER_URL}@g"     | \
+                sed -e "s@_GW_ENDPOINT_@${GW_ENDPOINT}@g"     | \
+		sed -e "s@_KM_URL_@${KM_URL}@g"     | \
+		sed -e "s@_TM_THR_AUTH_URL_@${TM_THR_AUTH_URL}@g"     | \
+		sed -e "s@_JMS_URL_@${JMS_URL}@g"     | \
+		sed -e "s@_TM_URL_@${TM_URL}@g"     | \
+		sed -e "s@_TM_THR_REC_GROUP_URL_@${_TM_THR_REC_GROUP_URL_}@g"     | \
+		sed -e "s@_STORE_URL_@${STORE_URL}@g"     | \
                 sed -e "s@_ANALYTICS_USER_@${ANALYTICS_USER}@g"     | \
                 sed -e "s@_ANALYTICS_URL_@${ANALYTICS_URL}@g"       | \
                 sed -e "s@_ANALYTICS_SSL_URL_@${ANALYTICS_SSL_URL}@g"       | \
                 sed -e "s@_ANALYTICS_PWD_@${ANALYTICS_PWD}@g" > /mnt/wso2-artifacts/repository/conf/api-manager.xml
 
 fi
+
 if [ ! -f /mnt/wso2-artifacts/repository/conf/carbon.xml ]
         then
 
