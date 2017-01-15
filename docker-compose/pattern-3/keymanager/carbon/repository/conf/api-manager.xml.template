@@ -464,8 +464,8 @@
         <DataPublisher>
             <Enabled>false</Enabled>
             <Type>Binary</Type>
-            <ReceiverUrlGroup>tcp://traffic-manager:9611</ReceiverUrlGroup>
-            <AuthUrlGroup>ssl://traffic-manager:9711</AuthUrlGroup>
+            <ReceiverUrlGroup>_TM_THR_REC_GROUP_URL_</ReceiverUrlGroup>
+            <AuthUrlGroup>_TM_THR_AUTH_URL_</AuthUrlGroup>
             <Username>${admin.username}</Username>
             <Password>${admin.password}</Password>
             <DataPublisherPool>
@@ -479,7 +479,7 @@
             </DataPublisherThreadPool>
         </DataPublisher>
         <PolicyDeployer>
-            <ServiceURL>https://traffic-manager:9443/services/</ServiceURL>
+            <ServiceURL>_TM_URL_</ServiceURL>
             <Username>${admin.username}</Username>
             <Password>${admin.password}</Password>
         </PolicyDeployer>
