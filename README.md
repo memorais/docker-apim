@@ -52,7 +52,7 @@ docker run -d -p 9443:9443 -e MY_URL_APIDB=jdbc:mysql://HOST_BD:3306/apimgtdb?au
 ```
 
 - **gateway-manager:**
-  Don't forget to do the port mapping 9443:9443
+  Don't forget to do the port mapping 9444:9443
 ```bash
 docker run -d -p 9444:9443 -e MY_URL_APIDB=jdbc:mysql://HOST_BD:3306/apimgtdb?autoReconnect=true -e MY_URL_USERSDB=jdbc:mysql://HOST_BD:3306/userdb?autoReconnect=true -e MY_URL_REGDB=jdbc:mysql://HOST_BD:3306/regdb?autoReconnect=true -e MY_JDBCDRIVER=com.mysql.jdbc.Driver -e MY_USER=root -e MY_PWD=root -e SVN_REPO_URL=http://HOSTNAME/repos/ -e SVN_REPO_USER=root -e SVN_REPO_PWD=root   --name gateway-manager -i -t docker.wso2.com/gateway-manager
 ```
