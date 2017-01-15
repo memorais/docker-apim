@@ -293,37 +293,23 @@ status=$START_EXIT_STATUS
 ## SICREDI ##
 #############
 
-if [ ! -f /mnt/wso2-artifacts/repository/conf/datasources/stats-datasources.xml ]
-        then
-
         cat /mnt/wso2-artifacts/repository/conf/datasources/stats-datasources.xml.template | \
                 sed -e "s@_MY_URL_@${MY_URL}@g"              | \
                 sed -e "s@_MY_JDBCDRIVER_@${MY_JDBCDRIVER}@g" | \
                 sed -e "s@_MY_USER_@${MY_USER}@g"             | \
-                sed -e "s@_MY_PWD_@${MY_PWD}@g" > /mnt/wso2-artifacts/repository/conf/datasources/stats-datasources.xml
-
-fi
-
-if [ ! -f /mnt/wso2-artifacts/repository/conf/datasources/analytics-datasources.xml ]
-        then
+                sed -e "s@_MY_PWD_@${MY_PWD}@g" > ${CARBON_HOME}/repository/conf/datasources/stats-datasources.xml
 
         cat /mnt/wso2-artifacts/repository/conf/datasources/analytics-datasources.xml.template | \
                 sed -e "s@_MY_URL_@${MY_URL}@g"              | \
                 sed -e "s@_MY_JDBCDRIVER_@${MY_JDBCDRIVER}@g" | \
                 sed -e "s@_MY_USER_@${MY_USER}@g"             | \
-                sed -e "s@_MY_PWD_@${MY_PWD}@g" > /mnt/wso2-artifacts/repository/conf/datasources/analytics-datasources.xml
-
-fi
-
-if [ ! -f /mnt/wso2-artifacts/repository/conf/carbon.xml ]
-        then
+                sed -e "s@_MY_PWD_@${MY_PWD}@g" > ${CARBON_HOME}/repository/conf/datasources/analytics-datasources.xml
 
         cat /mnt/wso2-artifacts/repository/conf/carbon.xml.template | \
                 sed -e "s@_SVN_REPO_URL_@${SVN_REPO_URL}@g"         | \
                 sed -e "s@_SVN_REPO_USER_@${SVN_REPO_USER}@g"       | \
-                sed -e "s@_SVN_REPO_PWD_@${SVN_REPO_PWD}@g" > /mnt/wso2-artifacts/repository/conf/carbon.xml
+                sed -e "s@_SVN_REPO_PWD_@${SVN_REPO_PWD}@g" > ${CARBON_HOME}/repository/conf/carbon.xml
 
-fi
 
 #############
 

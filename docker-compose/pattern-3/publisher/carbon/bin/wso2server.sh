@@ -279,9 +279,6 @@ echo "Using Java memory options: $JVM_MEM_OPTS"
 #############
 ## SICREDI ##
 #############
-if [ ! -f /mnt/wso2-artifacts/repository/conf/datasources/master-datasources.xml ]
-        then
-
         cat /mnt/wso2-artifacts/repository/conf/datasources/master-datasources.xml.template | \
                 sed -e "s@_MY_URL_APIDB_@${MY_URL_APIDB}@g"   | \
                 sed -e "s@_MY_URL_USERSDB_@${MY_URL_USERSDB}@g"   | \
@@ -289,12 +286,7 @@ if [ ! -f /mnt/wso2-artifacts/repository/conf/datasources/master-datasources.xml
                 sed -e "s@_MY_URL_STATDB_@${MY_URL_STATDB}@g"   | \
                 sed -e "s@_MY_JDBCDRIVER_@${MY_JDBCDRIVER}@g" | \
                 sed -e "s@_MY_USER_@${MY_USER}@g"             | \
-                sed -e "s@_MY_PWD_@${MY_PWD}@g" > /mnt/wso2-artifacts/repository/conf/datasources/master-datasources.xml
-
-fi
-
-if [ ! -f /mnt/wso2-artifacts/repository/conf/api-manager.xml ]
-        then
+                sed -e "s@_MY_PWD_@${MY_PWD}@g" > ${CARBON_HOME}/repository/conf/datasources/master-datasources.xml
 
         cat /mnt/wso2-artifacts/repository/conf/api-manager.xml.template | \
                 sed -e "s@_ANALYTICS_REST_USER_@${ANALYTICS_REST_USER}@g" | \
@@ -308,29 +300,15 @@ if [ ! -f /mnt/wso2-artifacts/repository/conf/api-manager.xml ]
                 sed -e "s@_ANALYTICS_USER_@${ANALYTICS_USER}@g"     | \
                 sed -e "s@_ANALYTICS_URL_@${ANALYTICS_URL}@g"       | \
                 sed -e "s@_ANALYTICS_SSL_URL_@${ANALYTICS_SSL_URL}@g"       | \
-                sed -e "s@_ANALYTICS_PWD_@${ANALYTICS_PWD}@g" > /mnt/wso2-artifacts/repository/conf/api-manager.xml
-
-fi
-
-
-
-if [ ! -f /mnt/wso2-artifacts/repository/conf/carbon.xml ]
-        then
+                sed -e "s@_ANALYTICS_PWD_@${ANALYTICS_PWD}@g" > ${CARBON_HOME}/repository/conf/api-manager.xml
 
         cat /mnt/wso2-artifacts/repository/conf/carbon.xml.template | \
                 sed -e "s@_SVN_REPO_USER_@${SVN_REPO_USER}@g"       | \
                 sed -e "s@_SVN_REPO_PWD_@${SVN_REPO_PWD}@g"         | \
-                sed -e "s@_SVN_REPO_URL_@${SVN_REPO_URL}@g" > /mnt/wso2-artifacts/repository/conf/carbon.xml
-
-fi
-
-if [ ! -f /mnt/wso2-artifacts/repository/conf/jndi.properties ]
-        then
+                sed -e "s@_SVN_REPO_URL_@${SVN_REPO_URL}@g" > ${CARBON_HOME}/repository/conf/carbon.xml
 
         cat /mnt/wso2-artifacts/repository/conf/jndi.properties.template | \
-                sed -e "s@_TRAFFIC_MANAGER_URI_@${TRAFFIC_MANAGER_URI}@g" > /mnt/wso2-artifacts/repository/conf/jndi.properties
-
-fi
+                sed -e "s@_TRAFFIC_MANAGER_URI_@${TRAFFIC_MANAGER_URI}@g" > ${CARBON_HOME}/repository/conf/jndi.properties
 
 #############
 
