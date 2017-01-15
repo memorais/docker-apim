@@ -78,7 +78,7 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                  <url>_MY_URL_USERSDB_</url>
+                  <url>_MY_URL_REGDB_</url>
                   <username>_MY_USER_</username>
                   <password>_MY_PWD_</password>
                   <driverClassName>_MY_JDBCDRIVER_</driverClassName>
