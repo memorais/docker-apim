@@ -71,7 +71,7 @@ docker run -d -p 8280:8280 -p 8243:8243 -e MY_URL_APIDB=jdbc:mysql://HOST_BD:330
 - **store:**
   Don't forget to do the port mappings 9446:9443
 ```bash
-docker run -d -p 9446:9443 -e MY_URL_STATDB=jdbc:mysql://HOST_DB:3306/stats_db?autoReconnect=true\&amp;relaxAutoCommit=true -e MY_URL_APIDB=jdbc:mysql://HOST_BD:3306/apimgtdb?autoReconnect=true -e MY_URL_USERSDB=jdbc:mysql://HOST_BD:3306/userdb?autoReconnect=true -e MY_URL_REGDB=jdbc:mysql://HOST_BD:3306/regdb?autoReconnect=true -e MY_JDBCDRIVER=com.mysql.jdbc.Driver -e MY_USER=root -e MY_PWD=root -e SVN_REPO_URL=http://HOSTNAME/repos/ -e SVN_REPO_USER=user -e SVN_REPO_PWD=password   --name store -i -t docker.wso2.com/store
+docker run -d -p 9446:9443 -e MY_URL_STATDB=jdbc:mysql://HOST_DB:3306/stats_db?autoReconnect=true\&amp;relaxAutoCommit=true -e MY_URL_APIDB=jdbc:mysql://HOST_BD:3306/apimgtdb?autoReconnect=true -e MY_URL_USERSDB=jdbc:mysql://HOST_BD:3306/userdb?autoReconnect=true -e MY_URL_REGDB=jdbc:mysql://HOST_BD:3306/regdb?autoReconnect=true -e MY_JDBCDRIVER=com.mysql.jdbc.Driver -e MY_USER=root -e MY_PWD=root -e SVN_REPO_URL=http://HOSTNAME/repos/ -e SVN_REPO_USER=user -e SVN_REPO_PWD=password -e ANALYTICS_URL=tcp://HOST_ANALYTICS:7612 -e ANALYTICS_SSL_URL=ssl://HOST_ANALYTICS:7712 -e ANALYTICS_USER=admin -e ANALYTICS_PWD=admin -e ANALYTICS_REST_URL=https://HOST_ANALYTICS:9444 -e ANALYTICS_REST_USER=admin -e ANALYTICS_REST_PWD=admin -e KM_URL=https://keymanager:9443/services/ -e GW_MANAGER_URL=https://GW_MANAGER:9443/services -e GW_REVOKE_URL=https://gateway-worker:8243/revoke  --name store -i -t docker.wso2.com/store
 ```
 
 - **publisher:**
