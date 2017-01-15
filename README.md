@@ -10,13 +10,18 @@ git clone https://github.com/memorais/docker-apim.git
 
 ## Environments used in runtime
 
-- **ARG MY_JDBC_URL:** JDBC URL
-- **ARG MY_JDBCDRIVER:** JDBC Driver, ex: ***com.mysql.jdbc.Driver***
-- **ARG MY_USER:** DB User
-- **ARG MY_PWD:** DB Password
-- **ARG SVN_REPO_URL:** SVN Repository URL, ex: http://svnrepo.example.com/repos/
-- **ARG SVN_REPO_USER:** SVN Repository User
-- **ARG SVN_REPO_PWD:** SVN Repository Password
+- **MY_JDBC_URL:** JDBC URL (for images ugins only one db)
+- **MY_URL_APIDB:** JDBC URL For apimgtdb
+- **MY_URL_USERSDB:** JDBC URL for userdb
+- **MY_URL_REGDB:** JDBC URL for regdb
+- **MY_URL_STATDB:** JDBC URL for stats_db
+- **MY_JDBCDRIVER:** JDBC Driver, ex: ***com.mysql.jdbc.Driver***
+- **MY_USER:** DB User
+- **MY_PWD:** DB Password
+- **SVN_REPO_URL:** SVN Repository URL, ex: http://svnrepo.example.com/repos/
+- **SVN_REPO_USER:** SVN Repository User
+- **SVN_REPO_PWD:** SVN Repository Password
+- **TRAFFIC_MANAGER_URI:** Traffic Manager TCP URI, ex: tcp://HOST_TRAFFIC_MANAGER:5672
 
 ## The building / running order
 
