@@ -282,8 +282,6 @@ echo "Using Java memory options: $JVM_MEM_OPTS"
 #############
 ## SICREDI ##
 #############
-if [ ! -f ${CARBON_HOME}/repository/conf/datasources/master-datasources.xml ]
-        then
 
         cat /mnt/wso2-artifacts/repository/conf/datasources/master-datasources.xml.template | \
                 sed -e "s@_MY_URL_APIDB_@${MY_URL_APIDB}@g"   | \
@@ -293,10 +291,6 @@ if [ ! -f ${CARBON_HOME}/repository/conf/datasources/master-datasources.xml ]
                 sed -e "s@_MY_USER_@${MY_USER}@g"             | \
                 sed -e "s@_MY_PWD_@${MY_PWD}@g" > ${CARBON_HOME}/repository/conf/datasources/master-datasources.xml
 
-fi
-
-if [ ! -f ${CARBON_HOME}/repository/conf/api-manager.xml ]
-        then
 
         cat /mnt/wso2-artifacts/repository/conf/api-manager.xml.template | \
                 sed -e "s@_ANALYTICS_REST_USER_@${ANALYTICS_REST_USER}@g" | \
@@ -317,17 +311,11 @@ if [ ! -f ${CARBON_HOME}/repository/conf/api-manager.xml ]
                 sed -e "s@_ANALYTICS_URL_@${ANALYTICS_URL}@g"       | \
                 sed -e "s@_ANALYTICS_SSL_URL_@${ANALYTICS_SSL_URL}@g"       | \
                 sed -e "s@_ANALYTICS_PWD_@${ANALYTICS_PWD}@g" > ${CARBON_HOME}/repository/conf/api-manager.xml
-fi
-
-if [ ! -f ${CARBON_HOME}/repository/conf/carbon.xml ]
-        then
 
         cat /mnt/wso2-artifacts/repository/conf/carbon.xml.template | \
                 sed -e "s@_SVN_REPO_USER_@${SVN_REPO_USER}@g"       | \
                 sed -e "s@_SVN_REPO_PWD_@${SVN_REPO_PWD}@g"         | \
                 sed -e "s@_SVN_REPO_URL_@${SVN_REPO_URL}@g" > ${CARBON_HOME}/repository/conf/carbon.xml
-
-fi
 
 #############
 
