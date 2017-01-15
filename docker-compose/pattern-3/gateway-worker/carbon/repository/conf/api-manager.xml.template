@@ -408,7 +408,7 @@
             <WhiteListedURI>
                 <URI>/api/am/publisher/{version}/swagger.json</URI>
                 <HTTPMethods>GET,HEAD</HTTPMethods>
-            </WhiARG JMS_URLteListedURI>
+            </WhiteListedURI>
             <WhiteListedURI>
                 <URI>/api/am/store/{version}/swagger.json</URI>
                 <HTTPMethods>GET,HEAD</HTTPMethods>
