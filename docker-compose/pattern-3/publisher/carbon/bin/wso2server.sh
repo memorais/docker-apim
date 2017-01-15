@@ -291,7 +291,7 @@ echo "Using Java memory options: $JVM_MEM_OPTS"
         cat /mnt/wso2-artifacts/repository/conf/api-manager.xml.template | \
                 sed -e "s@_ANALYTICS_REST_USER_@${ANALYTICS_REST_USER}@g" | \
                 sed -e "s@_ANALYTICS_REST_PWD_@${ANALYTICS_REST_PWD}@g"   | \
-                sed -e "s@_ANALYTICS_R	EST_URL_@${ANALYTICS_REST_URL}@g"   | \
+                sed -e "s@_ANALYTICS_REST_URL_@${ANALYTICS_REST_URL}@g"   | \
                 sed -e "s@_GW_MANAGER_URL_@${GW_MANAGER_URL}@g"     | \
                 sed -e "s@_GW_ENDPOINT_@${GW_ENDPOINT}@g"     | \
 		            sed -e "s@_KM_URL_@${KM_URL}@g"     | \

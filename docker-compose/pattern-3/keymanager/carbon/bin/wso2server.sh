@@ -295,7 +295,7 @@ echo "Using Java memory options: $JVM_MEM_OPTS"
         cat /mnt/wso2-artifacts/repository/conf/api-manager.xml.template | \
                 sed -e "s@_ANALYTICS_REST_USER_@${ANALYTICS_REST_USER}@g" | \
                 sed -e "s@_ANALYTICS_REST_PWD_@${ANALYTICS_REST_PWD}@g"   | \
-                sed -e "s@_ANALYTICS_R	EST_URL_@${ANALYTICS_REST_URL}@g"   | \
+                sed -e "s@_ANALYTICS_REST_URL_@${ANALYTICS_REST_URL}@g"   | \
                 sed -e "s@_GW_MANAGER_URL_@${GW_MANAGER_URL}@g"     | \
                 sed -e "s@_GW_REVOKE_URL_@${GW_REVOKE_URL}@g"     | \
                 sed -e "s@_GW_ENDPOINT_@${GW_ENDPOINT}@g"     | \
@@ -305,7 +305,6 @@ echo "Using Java memory options: $JVM_MEM_OPTS"
 		sed -e "s@_TM_URL_@${TM_URL}@g"     | \
 		sed -e "s@_TM_THR_REC_GROUP_URL_@${TM_THR_REC_GROUP_URL}@g"     | \
 		sed -e "s@_TM_THR_AUTH_URL_@${TM_THR_AUTH_URL}@g"     | \
-		sed -e "s@_TM_THR_REC_GROUP_URL_@${_TM_THR_REC_GROUP_URL_}@g"     | \
 		sed -e "s@_STORE_URL_@${STORE_URL}@g"     | \
                 sed -e "s@_ANALYTICS_USER_@${ANALYTICS_USER}@g"     | \
                 sed -e "s@_ANALYTICS_URL_@${ANALYTICS_URL}@g"       | \
