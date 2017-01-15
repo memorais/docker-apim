@@ -5,7 +5,6 @@ ANALYTICS_REST_USER=admin
 ANALYTICS_SSL_URL=ssl://HOST_ANALYTICS:7712
 ANALYTICS_URL=tcp://HOST_ANALYTICS:7612
 ANALYTICS_USER=admin
-GW_ENDPOINT=http://GE_WORKER:8280,https://GW_WORKER:8243
 GW_ENDPOINT=http://GW_WORKER:8280,https://GW_WORKER:8243
 GW_MANAGER_URL=https://GW_MANAGER:9443/services
 GW_REVOKE_URL=https://gateway-worker:8243/revoke
@@ -15,5 +14,15 @@ KM_URL=https://KEYMANAGER:9443/services/
 STORE_URL=https://STORE:9446/store
 TM_THR_AUTH_URL=ssl://traffic-manager:9711
 TM_THR_REC_GROUP_URL=tcp://traffic-manager:9611
-TM_URL=https://traffic-manager:9443/services/
 TM_URL=https://TRAFFIC_MANAGER:9443/services/
+MY_URL_APIDB=jdbc:mysql://HOST_BD:3306/apimgtdb?autoReconnect=true
+MY_URL_USERSDB=jdbc:mysql://HOST_BD:3306/userdb?autoReconnect=true
+MY_URL_REGDB=jdbc:mysql://HOST_BD:3306/regdb?autoReconnect=true
+MY_URL_STATDB=jdbc:mysql://HOST_DB:3306/stats_db?autoReconnect=true\&amp;relaxAutoCommit=true
+MY_JDBCDRIVER=com.mysql.jdbc.Driver
+MY_USER=root
+MY_PWD=root
+SVN_REPO_URL=http://HOSTNAME/repos/
+SVN_REPO_USER=user
+SVN_REPO_PWD=password 
+
