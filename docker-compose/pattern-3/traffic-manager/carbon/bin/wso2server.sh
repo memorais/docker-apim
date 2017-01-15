@@ -295,16 +295,6 @@ if [ ! -f /mnt/wso2-artifacts/repository/conf/datasources/master-datasources.xml
 
 fi
 
-if [ ! -f /mnt/wso2-artifacts/repository/conf/carbon.xml ]
-        then
-
-        cat /mnt/wso2-artifacts/repository/conf/carbon.xml.template | \
-                sed -e "s@_SVN_REPO_URL_@${SVN_REPO_URL}@g"         | \
-                sed -e "s@_SVN_REPO_USER_@${SVN_REPO_USER}@g"       | \
-                sed -e "s@_SVN_REPO_PWD_@${SVN_REPO_PWD}@g" > /mnt/wso2-artifacts/repository/conf/carbon.xml
-
-fi
-
 #############
 
 
