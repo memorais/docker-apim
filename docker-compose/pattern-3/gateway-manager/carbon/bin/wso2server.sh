@@ -286,10 +286,12 @@ if [ ! -f /mnt/wso2-artifacts/repository/conf/datasources/master-datasources.xml
 	then
 
 	cat /mnt/wso2-artifacts/repository/conf/datasources/master-datasources.xml.template | \
-		sed -e "s@_PG_URL_@${PG_URL}@g"              | \
-		sed -e "s@_PG_JDBCDRIVER_@${PG_JDBCDRIVER}@g" | \
-		sed -e "s@_PG_USER_@${PG_USER}@g"             | \
-		sed -e "s@_PG_PWD_@${PG_PWD}@g" > /mnt/wso2-artifacts/repository/conf/datasources/master-datasources.xml
+		sed -e "s@_MY_URL_APIDB_@${MY_URL_APIDB}@g"   | \
+		sed -e "s@_MY_URL_REGDB_@${MY_URL_REGDB}@g"   | \
+		sed -e "s@_MY_URL_USERSDB_@${MY_URL_USERSDB}@g"   | \
+		sed -e "s@_MY_JDBCDRIVER_@${MY_JDBCDRIVER}@g" | \
+		sed -e "s@_MY_USER_@${MY_USER}@g"             | \
+		sed -e "s@_MY_PWD_@${MY_PWD}@g" > /mnt/wso2-artifacts/repository/conf/datasources/master-datasources.xml
 
 fi
 

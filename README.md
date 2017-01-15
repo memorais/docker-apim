@@ -37,19 +37,18 @@ git clone https://github.com/memorais/docker-apim.git
   Don't forget to do the port mapping 9448:9444
 
   ```bash
-  docker run -d -p 9443:9443 -e MY_URL=jdbc:mysql://HOST_BD:3306/stats_db?autoReconnect=true -e MY_JDBCDRIVER=com.mysql.jdbc.Driver -e MY_USER=root -e MY_PWD=root -e SVN_REPO_URL=http://HOST_SVN/repos/ -e SVN_REPO_USER=root -e SVN_REPO_PWD=root   --link wso2mysql -i -t docker.wso2.com/am-analytics
+  docker run -d -p 9448:9444 -e MY_URL=jdbc:mysql://HOST_BD:3306/stats_db?autoReconnect=true -e MY_JDBCDRIVER=com.mysql.jdbc.Driver -e MY_USER=root -e MY_PWD=root -e SVN_REPO_URL=http://HOST_SVN/repos/ -e SVN_REPO_USER=root -e SVN_REPO_PWD=root -i -t docker.wso2.com/am-analytics
 ```
 - **traffic-manager:**
   Don't forget to do the port mapping 9447:9443
 ```bash
-docker run -d -p 9447:9443 -e MY_URL_APIDB=jdbc:mysql://HOST_BD:3306/apimgtdb?autoReconnect=true -e MY_URL_USERSDB=jdbc:mysql://HOST_BD:3306/usersdb?autoReconnect=true -e MY_URL_REGDB=jdbc:mysql://HOST_BD:3306/regdb?autoReconnect=true -e MY_JDBCDRIVER=com.mysql.jdbc.Driver -e MY_USER=root -e MY_PWD=root -e SVN_REPO_URL=http://HOSTNAME/repos/ -e SVN_REPO_USER=root -e SVN_REPO_PWD=root   --name traffic-manager --link wso2mysql -i -t docker.wso2.com/traffic-manager
+docker run -d -p 9447:9443 -e MY_URL_APIDB=jdbc:mysql://HOST_BD:3306/apimgtdb?autoReconnect=true -e MY_URL_USERSDB=jdbc:mysql://HOST_BD:3306/usersdb?autoReconnect=true -e MY_URL_REGDB=jdbc:mysql://HOST_BD:3306/regdb?autoReconnect=true -e MY_JDBCDRIVER=com.mysql.jdbc.Driver -e MY_USER=root -e MY_PWD=root -e SVN_REPO_URL=http://HOSTNAME/repos/ -e SVN_REPO_USER=root -e SVN_REPO_PWD=root   --name traffic-manager  -i -t docker.wso2.com/traffic-manager
 ```
 
-
 - **key-manager:**
-
+  Don't forget to do the port mapping 9443:9443
 ```bash
-docker run -d -p 9447:9443 -e MY_URL_APIDB=jdbc:mysql://HOST_BD:3306/apimgtdb?autoReconnect=true -e MY_URL_USERSDB=jdbc:mysql://HOST_BD:3306/usersdb?autoReconnect=true -e MY_URL_REGDB=jdbc:mysql://HOST_BD:3306/regdb?autoReconnect=true -e MY_JDBCDRIVER=com.mysql.jdbc.Driver -e MY_USER=root -e MY_PWD=root -e SVN_REPO_URL=http://HOSTNAME/repos/ -e SVN_REPO_USER=root -e SVN_REPO_PWD=root   --name traffic-manager --link wso2mysql -i -t docker.wso2.com/keymanager
+docker run -d -p 9443:9443 -e MY_URL_APIDB=jdbc:mysql://HOST_BD:3306/apimgtdb?autoReconnect=true -e MY_URL_USERSDB=jdbc:mysql://HOST_BD:3306/usersdb?autoReconnect=true -e MY_URL_REGDB=jdbc:mysql://HOST_BD:3306/regdb?autoReconnect=true -e MY_JDBCDRIVER=com.mysql.jdbc.Driver -e MY_USER=root -e MY_PWD=root -e SVN_REPO_URL=http://HOSTNAME/repos/ -e SVN_REPO_USER=root -e SVN_REPO_PWD=root   --name keymanager -i -t docker.wso2.com/keymanager
 ```
 
 
