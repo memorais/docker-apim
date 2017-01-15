@@ -18,6 +18,10 @@ ARG ANALYTICS_REST_URL
 ARG ANALYTICS_REST_USER
 ARG ANALYTICS_REST_PWD
 
+ARG KM_URL
+ARG GW_MANAGER_URL
+ARG GW_REVOKE_URL
+
 COPY pattern-3/store/carbon/ /mnt/wso2-artifacts
 
 COPY artifacts/mysql-connector-java-5.1.34-bin.jar /mnt/wso2-artifacts/repository/components/lib/
