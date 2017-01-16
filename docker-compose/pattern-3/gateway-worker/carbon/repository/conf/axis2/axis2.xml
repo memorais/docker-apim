@@ -722,8 +722,12 @@
         -->
         <members>
             <member>
-                <hostName>gateway-manager</hostName>
+                <hostName>wso2am-gwmanager.default.svc.cluster.local</hostName>
                 <port>4000</port>
+	    </member>
+	    <member>
+		 <hostName>wso2am-gwworker.default.svc.cluster.local</hostName>
+		 <port>4000</port>
             </member>
         </members>
 

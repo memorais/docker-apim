@@ -628,7 +628,7 @@
      getting this node to join the cluster.
      -->
      <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent"
-	                       enable="false">
+	                       enable="true">
         <!--
            This parameter indicates whether the cluster has to be automatically initalized
            when the AxisConfiguration is built. If set to "true" the initialization will not be
@@ -717,7 +717,11 @@
 	-->
         <members>
             <member>
-                    <hostName>publisher</hostName>
+                <hostName>wso2am-store.default.svc.cluster.local</hostName>
+                <port>4000</port>
+		</member>
+	      	<member>
+                <hostName>wso2am-publisher.default.svc.cluster.local</hostName>
                 <port>4000</port>
             </member>
         </members>

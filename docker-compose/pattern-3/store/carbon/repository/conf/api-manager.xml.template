@@ -18,9 +18,9 @@
         <!-- Server URL of the Authentication service -->
         <ServerURL>_KM_URL_</ServerURL>
         <!-- Admin username for the Authentication manager. -->
-        <Username>${admin.username}</Username>
+        <Username>admin</Username>
         <!-- Admin password for the Authentication manager. -->
-        <Password>${admin.password}</Password>
+        <Password>admin</Password>
         <!-- Indicates whether the permissions checking of the user (on the Publisher and Store) should be done
            via a remote service. The check will be done on the local server when false. -->
         <CheckPermissionsRemotely>false</CheckPermissionsRemotely>
@@ -89,9 +89,9 @@
                 <!-- Server URL of the API gateway -->
                 <ServerURL>_GW_MANAGER_URL_</ServerURL>
 		        <!-- Admin username for the API gateway. -->
-                <Username>${admin.username}</Username>
+                <Username>admin</Username>
                 <!-- Admin password for the API gateway.-->
-                <Password>${admin.password}</Password>
+                <Password>admin</Password>
                 <!-- Endpoint URLs for the APIs hosted in this API gateway.-->
                 <GatewayEndpoint>_GW_ENDPOINT_</GatewayEndpoint>
             </Environment>
@@ -205,9 +205,9 @@
         <ServerURL>_KM_URL_</ServerURL>
 
         <!-- Admin username for API key manager. -->
-        <Username>${admin.username}</Username>
+        <Username>admin</Username>
         <!-- Admin password for API key manager. -->
-        <Password>${admin.password}</Password>
+        <Password>admin</Password>
 
         <!-- Configurations related to enable thrift support for key-management related communication.
              If you want to switch back to Web Service Client, change the value of "KeyValidatorClientType" to "WSClient".
@@ -289,10 +289,10 @@
         <!-- Server URL of the API Store. -->
         <ServerURL>https://localhost:${mgt.transport.https.port}${carbon.context}services/</ServerURL>
         <!-- Admin username for API Store. -->
-        <Username>${admin.username}</Username>
+        <Username>admin</Username>
 
         <!-- Admin password for API Store. -->
-        <Password>${admin.password}</Password>
+        <Password>admin</Password>
         <!-- This parameter specifies whether to display multiple versions of same
              API or only showing the latest version of an API. -->
         <DisplayMultipleVersions>false</DisplayMultipleVersions>
@@ -466,8 +466,8 @@
             <Type>Binary</Type>
             <ReceiverUrlGroup>tcp://${carbon.local.ip}:${receiver.url.port}</ReceiverUrlGroup>
             <AuthUrlGroup>ssl://${carbon.local.ip}:${auth.url.port}</AuthUrlGroup>
-            <Username>${admin.username}</Username>
-            <Password>${admin.password}</Password>
+            <Username>admin</Username>
+            <Password>admin</Password>
             <DataPublisherPool>
                 <MaxIdle>1000</MaxIdle>
                 <InitIdleCapacity>200</InitIdleCapacity>
@@ -480,8 +480,8 @@
         </DataPublisher>
         <PolicyDeployer>
             <ServiceURL>https://localhost:${mgt.transport.https.port}${carbon.context}services/</ServiceURL>
-            <Username>${admin.username}</Username>
-            <Password>${admin.password}</Password>
+            <Username>admin</Username>
+            <Password>admin</Password>
         </PolicyDeployer>
         <BlockCondition>
             <Enabled>false</Enabled>
@@ -491,8 +491,8 @@
         <JMSConnectionDetails>
             <Enabled>false</Enabled>
             <ServiceURL>tcp://${carbon.local.ip}:${jms.port}</ServiceURL>
-            <Username>${admin.username}</Username>
-            <Password>${admin.password}</Password>
+            <Username>admin</Username>
+            <Password>admin</Password>
             <Destination>throttleData</Destination>
             <!--InitDelay>300000</InitDelay-->
             <JMSConnectionParameters>

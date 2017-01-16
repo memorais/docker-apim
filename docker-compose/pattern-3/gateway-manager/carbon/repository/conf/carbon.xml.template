@@ -586,7 +586,7 @@
         <AutoCheckout>true</AutoCheckout>
         <RepositoryType>svn</RepositoryType>
         <SvnUrl>_SVN_REPO_URL_</SvnUrl>
-        <SvnUser>_SVN_REPO_USER_</SvnUser>
+        <SvnUser>user</SvnUser>
         <SvnPassword>password</SvnPassword>
         <SvnUrlAppendTenantId>false</SvnUrlAppendTenantId>
     </DeploymentSynchronizer>
