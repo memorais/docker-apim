@@ -627,20 +627,17 @@
      corresponding to the "class" attribute of the "clustering" element. It is also responsible for
      getting this node to join the cluster.
      -->
-    <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent"
-                enable="false">
-
+     <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent"
+	                       enable="false">
         <!--
            This parameter indicates whether the cluster has to be automatically initalized
            when the AxisConfiguration is built. If set to "true" the initialization will not be
            done at that stage, and some other party will have to explictly initialize the cluster.
         -->
         <parameter name="AvoidInitiation">true</parameter>
-
         <!--
            The membership scheme used in this setup. The only values supported at the moment are
            "multicast" and "wka"
-
            1. multicast - membership is automatically discovered using multicasting
            2. wka - Well-Known Address based multicasting. Membership is discovered with the help
                     of one or more nodes running at a Well-Known Address. New members joining a
@@ -655,7 +652,7 @@
         <!--<parameter name="mgtCenterURL">http://localhost:8081/mancenter/</parameter>-->
 
         <!--
-         The clustering domain/group. Nodes in the same group will belong to the same multicast
+	              The clustering domain/group. Nodes in the same group will belong to the same multicast
          domain. There will not be interference between nodes in different groups.
         -->
         <parameter name="domain">wso2.pub.store.domain</parameter>
@@ -671,73 +668,72 @@
         <parameter name="mcastTimeout">60</parameter>
 
         <!--
-           The IP address of the network interface to which the multicasting has to be bound to.
+	                The IP address of the network interface to which the multicasting has to be bound to.
            Multicasting would be done using this interface.
         -->
         <!--
-            <parameter name="mcastBindAddress">127.0.0.1</parameter>
+	                 <parameter name="mcastBindAddress">127.0.0.1</parameter>
         -->
         <!-- The host name or IP address of this member -->
 
         <parameter name="localMemberHost">store</parameter>
 
         <!--
-            The bind adress of this member. The difference between localMemberHost & localMemberBindAddress
+	                 The bind adress of this member. The difference between localMemberHost & localMemberBindAddress
             is that localMemberHost is the one that is advertised by this member, while localMemberBindAddress
             is the address to which this member is bound to.
         -->
         <!--
-        <parameter name="localMemberBindAddress">127.0.0.1</parameter>
+	             <parameter name="localMemberBindAddress">127.0.0.1</parameter>
         -->
 
         <!--
-        The TCP port used by this member. This is the port through which other nodes will
+	             The TCP port used by this member. This is the port through which other nodes will
         contact this member
          -->
         <parameter name="localMemberPort">4000</parameter>
 
         <!--
-            The bind port of this member. The difference between localMemberPort & localMemberBindPort
+	                 The bind port of this member. The difference between localMemberPort & localMemberBindPort
             is that localMemberPort is the one that is advertised by this member, while localMemberBindPort
             is the port to which this member is bound to.
         -->
         <!--
-        <parameter name="localMemberBindPort">4001</parameter>
+	             <parameter name="localMemberBindPort">4001</parameter>
         -->
 
         <!--
-        Properties specific to this member
+	             Properties specific to this member
         -->
         <parameter name="properties">
-            <property name="backendServerURL" value="https://${hostName}:${httpsPort}/services/"/>
-            <property name="mgtConsoleURL" value="https://${hostName}:${httpsPort}/"/>
-            <property name="subDomain" value="worker"/>
-        </parameter>
+	            <property name="backendServerURL" value="https://${hostName}:${httpsPort}/services/"/>
+	                <property name="mgtConsoleURL" value="https://${hostName}:${httpsPort}/"/>
+	                <property name="subDomain" value="worker"/>
+	        </parameter>
 
         <!--
-           The list of static or well-known members. These entries will only be valid if the
+	                The list of static or well-known members. These entries will only be valid if the
            "membershipScheme" above is set to "wka"
-        -->
+	-->
         <members>
             <member>
-                <hostName>publisher</hostName>
+                    <hostName>publisher</hostName>
                 <port>4000</port>
             </member>
         </members>
-
         <!--
-        Enable the groupManagement entry if you need to run this node as a cluster manager.
+	             Enable the groupManagement entry if you need to run this node as a cluster manager.
         Multiple application domains with different GroupManagementAgent implementations
         can be defined in this section.
         -->
         <groupManagement enable="false">
-            <applicationDomain name="wso2.apim.domain"
-                               description="APIM group"
-                               agent="org.wso2.carbon.core.clustering.hazelcast.HazelcastGroupManagementAgent"
-                               subDomain="worker"
-                               port="2222"/>
-        </groupManagement>
-    </clustering>
+	            <applicationDomain name="wso2.apim.domain"
+			    description="APIM group"
+                            agent="org.wso2.carbon.core.clustering.hazelcast.HazelcastGroupManagementAgent"
+                            subDomain="worker"
+                            port="2222"/> 							         
+	 </groupManagement>
+      </clustering>
 
     <!-- ================================================= -->
     <!--                   Transactions                    -->

@@ -650,7 +650,7 @@
                     is deemed to have left the cluster, it will be detected by the Group Membership
                     Service (GMS) using a TCP ping mechanism.
         -->
-        <parameter name="membershipScheme">wka</parameter>
+        <parameter name="membershipScheme">multicast</parameter>
         <!--<parameter name="licenseKey">xxx</parameter>-->
         <!--<parameter name="mgtCenterURL">http://localhost:8081/mancenter/</parameter>-->
 
@@ -661,7 +661,7 @@
         <parameter name="domain">wso2.pub.store.domain</parameter>
 
         <!-- The multicast address to be used -->
-        <!--<parameter name="mcastAddress">228.0.0.4</parameter>-->
+        <parameter name="mcastAddress">224.0.0.4</parameter>
 
         <!-- The multicast port to be used -->
         <parameter name="mcastPort">45564</parameter>
@@ -674,9 +674,8 @@
            The IP address of the network interface to which the multicasting has to be bound to.
            Multicasting would be done using this interface.
         -->
-        <!--
-            <parameter name="mcastBindAddress">127.0.0.1</parameter>
-        -->
+        <parameter name="mcastBindAddress">127.0.0.1</parameter>
+        
         <!-- The host name or IP address of this member -->
 
         <parameter name="localMemberHost">publisher</parameter>
@@ -717,14 +716,13 @@
         <!--
            The list of static or well-known members. These entries will only be valid if the
            "membershipScheme" above is set to "wka"
-        -->
+	-->
         <members>
             <member>
                 <hostName>store</hostName>
                 <port>4000</port>
             </member>
         </members>
-
         <!--
         Enable the groupManagement entry if you need to run this node as a cluster manager.
         Multiple application domains with different GroupManagementAgent implementations

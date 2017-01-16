@@ -279,6 +279,14 @@ echo "Using Java memory options: $JVM_MEM_OPTS"
 #############
 ## SICREDI ##
 #############
+
+	export LOCAL_DOCKER_IP=$(ip route get 1 | awk '{print $NF;exit}')
+	export AXIS2_CONF_FILE="${CARBON_HOME}/repository/conf/axis2/axis2.xml"
+
+	sed -i "s#<parameter\ name=\"localMemberHost\".*#<parameter\ name=\"localMemberHost\">${LOCAL_DOCKER_IP}<\/parameter>#" "${AXIS2_CONF_FILE}"
+	sed -i "s#<parameter\ name=\"mcastBindAddress\".*#<parameter\ name=\"mcastBindAddress\">${LOCAL_DOCKER_IP}<\/parameter>#" "${AXIS2_CONF_FILE}"
+	sed -i "s#<parameter\ name=\"localMemberPort\".*#<parameter\ name=\"localMemberPort\">${LOCAL_DOCKER_IP}<\/parameter>#" "${AXIS2_CONF_FILE}"
+
         cat /mnt/wso2-artifacts/repository/conf/log4j.properties.template | \
         sed -e "s@_ANALYTICS_URL_@${ANALYTICS_URL}@g" > ${CARBON_HOME}/repository/conf/log4j.properties
 
