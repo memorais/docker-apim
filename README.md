@@ -79,3 +79,7 @@ docker run -d -p 9446:9443 -e MY_URL_STATDB=jdbc:mysql://HOST_DB:3306/stats_db?a
 ```bash
 docker run -d -p  -e 9445:9443 MY_URL_STATDB=jdbc:mysql://HOST_DB:3306/stats_db?autoReconnect=true\&amp;relaxAutoCommit=true -e MY_URL_APIDB=jdbc:mysql://HOST_BD:3306/apimgtdb?autoReconnect=true -e MY_URL_USERSDB=jdbc:mysql://HOST_BD:3306/userdb?autoReconnect=true -e MY_URL_REGDB=jdbc:mysql://HOST_BD:3306/regdb?autoReconnect=true -e TRAFFIC_MANAGER_URI=tcp://HOST_TRAFFIC_MANAGER:<PORT|5672> -e MY_JDBCDRIVER=com.mysql.jdbc.Driver -e MY_USER=root -e MY_PWD=root -e SVN_REPO_URL=http://HOSTNAME/repos/ -e SVN_REPO_USER=user -e SVN_REPO_PWD=password  -e ANALYTICS_URL=tcp://HOST_ANALYTICS:7612 -e ANALYTICS_SSL_URL=ssl://HOST_ANALYTICS:7712 -e ANALYTICS_USER=admin -e ANALYTICS_PWD=admin -e ANALYTICS_REST_URL=https://HOST_ANALYTICS:9444 -e ANALYTICS_REST_USER=admin -e ANALYTICS_REST_PWD=admin --name publisher -i -t docker.wso2.com/publisher
 ```
+
+## Kubernetes
+
+Directory k8s included with YAML files for Kubernetes setup.

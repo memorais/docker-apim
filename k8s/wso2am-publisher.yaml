@@ -1,0 +1,87 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wso2am-publisher
+spec:
+  type: NodePort
+  ports:
+  - port: 9443
+    nodePort: 31449
+    targetPort: 9443
+    protocol: TCP
+    name: defaultport
+  - port: 4000
+    targetPort: 4000
+    name: cluster
+  selector:
+    app: wso2am-publisher
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wso2am-publisher
+spec:
+ template:
+  metadata:
+      labels:
+        app: wso2am-publisher
+  spec:
+    containers:
+    - name: wso2am-publisher
+      image: app1gstasoa023e.pre.sicredi.net:5000/wso2am-publisher-sicredi:2.0.0 
+      env:
+        - name: ANALYTICS_REST_URL
+          value: https://wso2am-analytics.default.svc.cluster.local:9444
+        - name: ANALYTICS_REST_USER
+          value: admin
+        - name: ANALYTICS_REST_PWD
+          value: admin
+        - name: ANALYTICS_URL
+          value: tcp://wso2am-analytics.default.svc.cluster.local:7612
+        - name: ANALYTICS_SSL_URL
+          value: ssl://wso2am-analytics.default.svc.cluster.local:7712
+        - name: ANALYTICS_USER
+          value: admin
+        - name: ANALYTICS_PWD
+          value: admin
+        - name: MY_URL_STATDB
+          value: jdbc:mysql://wso2db-service.default.svc.cluster.local:3306/stats_db?autoReconnect=true\&amp;relaxAutoCommit=true
+        - name: MY_URL_APIDB
+          value: jdbc:mysql://wso2db-service.default.svc.cluster.local:3306/apimgtdb?autoReconnect=true
+        - name: MY_URL_USERSDB
+          value: jdbc:mysql://wso2db-service.default.svc.cluster.local:3306/userdb?autoReconnect=true
+        - name: MY_URL_REGDB
+          value: jdbc:mysql://wso2db-service.default.svc.cluster.local:3306/regdb?autoReconnect=true
+        - name: TRAFFIC_MANAGER_URI
+          value: TRAFFIC_MANAGER_URI=tcp://wso2am-traffic.default.svc.cluster.local:5672
+        - name: MY_JDBCDRIVER
+          value: com.mysql.jdbc.Driver
+        - name: MY_USER
+          value: root
+        - name: MY_PWD
+          value: root
+        - name: SVN_REPO_URL
+          value: http://svnrepo-service.default.svc.cluster.local/repos/
+        - name: SVN_REPO_USER
+          value: user 
+        - name: SVN_REPO_PWD
+          value: password
+        - name: KM_URL
+          value: https://wso2am-key.default.svc.cluster.local:9443/services/
+        - name: STORE_URL
+          value: https://wso2am-store.default.svc.cluster.local:9443/store/
+        - name: TM_URL
+          value: https://wso2am-traffic.default.svc.cluster.local:9443/services/
+        - name: TM_THR_REC_GROUP_URL
+          value: tcp://wso2am-traffic.default.svc.cluster.local:9611
+        - name: TM_THR_AUTH_URL
+          value: ssl://wso2am-traffic.default.svc.cluster.local:9711
+        - name: GW_MANAGER_URL
+          value: https://wso2am-gwmanager.default.svc.cluster.local:9443/services/
+        - name: GW_ENDPOINT
+          value: http://wso2am-gwworker.default.svc.cluster.local:8280,https://wso2am-gwworker.default.svc.cluster.local:8243
+      ports:
+        - containerPort: 9443
+          name: defaultport
+        - containerPort: 4000
+          name: cluster

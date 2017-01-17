@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wso2am-analytics
+spec:
+  type: NodePort 
+  ports:
+  - port: 9444
+    nodePort: 31444
+    targetPort: 9444
+    protocol: TCP
+    name: defaultport
+  - port: 7612
+    targetPort: 7612
+    name: rmi
+  - port: 7712
+    targetPort: 7712
+    name: rmissl
+  selector:
+    app: wso2am-analytics
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wso2am-analytics
+spec:
+ template:
+  metadata:
+      labels:
+        app: wso2am-analytics
+  spec:
+    containers:
+    - name: wso2am-analytics
+      image: app1gstasoa023e.pre.sicredi.net:5000/wso2am-analytics-sicredi:2.0.0
+      env:
+        - name: MY_URL
+          value: jdbc:mysql://wso2db-service.default.svc.cluster.local:3306/stats_db?autoReconnect=true
+        - name: MY_JDBCDRIVER
+          value: com.mysql.jdbc.Driver
+        - name: MY_USER
+          value: root
+        - name: MY_PWD
+          value: root
+        - name: SVN_REPO_URL
+          value: http://svnrepo-service.default.svc.cluster.local/repos/
+        - name: SVN_REPO_USER
+          value: user 
+        - name: SVN_REPO_PWD
+          value: password
+      ports:
+        - containerPort: 9444
+          name: defaultport
+        - containerPort: 7612
+          name: rmi
+        - containerPort: 7712
+          name: rmissl 

@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wso2am-traffic
+spec:
+  type: NodePort
+  ports:
+  - port: 9443
+    nodePort: 31443
+    targetPort: 9443
+    protocol: TCP
+    name: defaultport
+  - port: 9611
+    targetPort: 9611
+    name: rmi
+  - port: 9711
+    targetPort: 9711
+    name: rmissl
+  - port: 5672
+    targetPort: 5672
+    name: jms
+  selector:
+    app: wso2am-traffic
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wso2am-traffic
+spec:
+ template:
+  metadata:
+      labels:
+        app: wso2am-traffic
+  spec:
+    containers:
+    - name: wso2am-traffic
+      image: app1gstasoa023e.pre.sicredi.net:5000/wso2am-trafficmanager-sicredi:2.0.0
+      env:
+        - name: MY_URL_APIMGTDB
+          value: jdbc:mysql://wso2db-service.default.svc.cluster.local:3306/apimgtdb?autoReconnect=true
+        - name: MY_URL_USERSDB
+          value: jdbc:mysql://wso2db-service.default.svc.cluster.local:3306/userdb?autoReconnect=true
+        - name: MY_URL_REGDB
+          value: jdbc:mysql://wso2db-service.default.svc.cluster.local:3306/regdb?autoReconnect=true
+        - name: MY_JDBCDRIVER
+          value: com.mysql.jdbc.Driver
+        - name: MY_USER
+          value: root
+        - name: MY_PWD
+          value: root
+        - name: SVN_REPO_URL
+          value: http://svnrepo-service.default.svc.cluster.local/repos/
+        - name: SVN_REPO_USER
+          value: user 
+        - name: SVN_REPO_PWD
+          value: password
+      ports:
+        - containerPort: 9443
+          name: defaultport
+        - containerPort: 9611
+          name: rmi
+        - containerPort: 9711
+          name: rmissl
+        - containerPort: 5672
+          name: jms

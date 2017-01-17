@@ -1,0 +1,79 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wso2am-gwmanager
+spec:
+  type: NodePort
+  ports:
+  - port: 9443
+    nodePort: 31446
+    targetPort: 9443
+    protocol: TCP
+    name: defaultport
+  - port: 4000
+    targetPort: 4000
+    name: cluster
+  selector:
+    app: wso2am-gwmanager
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wso2am-gwmanager
+spec:
+ template:
+  metadata:
+      labels:
+        app: wso2am-gwmanager
+  spec:
+    containers:
+    - name: wso2am-gwmanager
+      image: app1gstasoa023e.pre.sicredi.net:5000/wso2am-gwmanager-sicredi:2.0.0 
+      env:
+        - name: MY_URL_APIDB
+          value: jdbc:mysql://wso2db-service.default.svc.cluster.local:3306/apimgtdb?autoReconnect=true
+        - name: MY_URL_USERSDB
+          value: jdbc:mysql://wso2db-service.default.svc.cluster.local:3306/userdb?autoReconnect=true
+        - name: MY_URL_REGDB
+          value: jdbc:mysql://wso2db-service.default.svc.cluster.local:3306/regdb?autoReconnect=true
+        - name: MY_JDBCDRIVER
+          value: com.mysql.jdbc.Driver
+        - name: MY_USER
+          value: root
+        - name: MY_PWD
+          value: root
+        - name: SVN_REPO_URL
+          value: http://svnrepo-service.default.svc.cluster.local/repo/
+        - name: SVN_REPO_USER
+          value: user
+        - name: SVN_REPO_PWD
+          value: password
+        - name: ANALYTICS_URL
+          value: tcp://wso2am-analytics.default.svc.cluster.local:7612
+        - name: ANALYTICS_SSL_URL
+          value: ssl://wso2am-analytics.default.svc.cluster.local:7712
+        - name: ANALYTICS_USER
+          value: admin
+        - name: ANALYTICS_PWD
+          value: admin
+        - name: ANALYTICS_REST_URL
+          value: https://wso2am-analytics.default.svc.cluster.local:9444
+        - name: ANALYTICS_REST_USER
+          value: admin
+        - name: ANALYTICS_REST_PWD
+          value: admin
+        - name: GW_MANAGER_URL
+          value: https://wso2am-gwmanager.default.svc.cluster.local:9443/services
+        - name: GW_ENDPOINT
+          value: http://wso2am-gwworker.default.svc.cluster.local:8280,https://wso2am-gwworker.default.svc.cluster.local:8243
+        - name: KM_URL
+          value: http://wso2am-key.default.svc.cluster.local:9763/services/
+        - name: STORE_URL
+          value: https://wso2am-store.default.svc.cluster.local:9443/store
+        - name: TM_URL
+          value: https://wso2am-traffic.default.svc.cluster.local:9443/services/
+      ports:
+        - containerPort: 9443
+          name: defaultport
+        - containerPort: 4000
+          name: cluster
